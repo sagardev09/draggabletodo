@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import Plus from "../icons/Plus";
 import { column, Id, Task } from "../Types";
-import ColumnContainer from "./ColumnContainer";
+import ColumnContainer from "./ColumnContainer/ColumnContainer";
 import {
   DndContext,
   DragEndEvent,
@@ -200,31 +200,32 @@ const KanbanBoard = () => {
           </button>
         </div>
 
-        {createPortal(
-          <DragOverlay>
-            {activecolumn && (
-              <ColumnContainer
-                Column={activecolumn}
-                DeleteTask={DeleteTask}
-                updateColumn={updateColumn}
-                createTask={createTask}
-                tasks={tasks.filter(
-                  (task) => task.columnId === activecolumn.id
-                )}
-                deletetask={deletetask}
-                updateTask={updateTask}
-              />
-            )}
-            {activeTask && (
-              <TaskCard
-                task={activeTask}
-                deletetask={deletetask}
-                updateTask={updateTask}
-              />
-            )}
-          </DragOverlay>,
-          document.body
-        )}
+        {typeof document !== "undefined" &&
+          createPortal(
+            <DragOverlay>
+              {activecolumn && (
+                <ColumnContainer
+                  Column={activecolumn}
+                  DeleteTask={DeleteTask}
+                  updateColumn={updateColumn}
+                  createTask={createTask}
+                  tasks={tasks.filter(
+                    (task) => task.columnId === activecolumn.id
+                  )}
+                  deletetask={deletetask}
+                  updateTask={updateTask}
+                />
+              )}
+              {activeTask && (
+                <TaskCard
+                  task={activeTask}
+                  deletetask={deletetask}
+                  updateTask={updateTask}
+                />
+              )}
+            </DragOverlay>,
+            document.body
+          )}
       </DndContext>
     </div>
   );

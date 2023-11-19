@@ -1,12 +1,12 @@
 "use client";
 import { useState, useMemo } from "react";
 import { useSortable, SortableContext } from "@dnd-kit/sortable";
-import { Id, column, Task } from "../Types";
-import Delete from "../icons/Delete";
+import { Id, column, Task } from "../../Types";
+import Delete from "../../icons/Delete";
 import { CSS } from "@dnd-kit/utilities";
-import Plus from "../icons/Plus";
-import TaskCard from "./TaskCard";
-import Pc from "../icons/Pc";
+import Plus from "../../icons/Plus";
+import TaskCard from "../TaskCard";
+import Pc from "../../icons/Pc";
 
 interface Props {
   Column: column;

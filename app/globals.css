@@ -16,3 +16,36 @@
 .task > ::-webkit-scrollbar-thumb {
   background-color: rgb(65, 4, 178);
 }
+:root {
+  --bg: white;
+  --textcolor: black;
+  --softbg: #f0f0f0;
+  --softtextcolor: ##626262;
+}
+
+.dark {
+  --bg: #0f172a;
+  --textcolor: #ddd;
+  --softbg: #000;
+  --softtextcolor: #a6a6a6;
+}
+.light {
+  --bg: white;
+  --textcolor: black;
+  --softbg: #f0f0f0;
+  --softtextcolor: ##626262;
+}
+.containerr {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--textcolor);
+}
+.logoname {
+  color: var(--textcolor);
+}
+.taskcardcontainer {
+  background-color: var(--softbg);
+}
+.taskcarcontent {
+  color: var(--textcolor);
+}

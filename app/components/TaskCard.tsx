@@ -88,7 +88,7 @@ const TaskCard = ({ task, deletetask, updateTask }: Props) => {
       style={style}
       {...attributes}
       {...listeners}
-      className=" p-2.5 h-[100px] min-h-[100px] items-center flex text-left rounded-xl border-2 border-rose-500  cursor-grab relative bg-slate-700 hover:ring-rose-500 hover:ring-2 task"
+      className=" p-2.5 h-[100px] min-h-[100px] items-center flex text-left rounded-xl border-2 border-rose-500  cursor-grab relative bg-slate-700 hover:ring-rose-500 hover:ring-2 task taskcardcontainer"
       onMouseEnter={() => {
         setmouseIsOver(true);
       }}
@@ -97,7 +97,7 @@ const TaskCard = ({ task, deletetask, updateTask }: Props) => {
       }}
       onClick={toggleEditMode}
     >
-      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-hidden whitespace-pre-wrap">
+      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-hidden whitespace-pre-wrap taskcarcontent">
         {task.content}
       </p>
 

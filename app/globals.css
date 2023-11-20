@@ -16,24 +16,22 @@
 .task > ::-webkit-scrollbar-thumb {
   background-color: rgb(65, 4, 178);
 }
-:root {
-  --bg: white;
-  --textcolor: black;
-  --softbg: #f0f0f0;
-  --softtextcolor: ##626262;
-}
 
 .dark {
-  --bg: #0f172a;
-  --textcolor: #ddd;
-  --softbg: #000;
+  --bg: #000;
+  --textcolor: #fff;
+  --softtask: #191717;
+  --softcol: #191717;
   --softtextcolor: #a6a6a6;
+  --bordercolor: #fff;
 }
 .light {
   --bg: white;
   --textcolor: black;
-  --softbg: #f0f0f0;
+  --softtask: #9ade7b;
+  --softcol: #9ade7b;
   --softtextcolor: ##626262;
+  --bordercolor: #000;
 }
 .containerr {
   min-height: 100vh;
@@ -44,8 +42,19 @@
   color: var(--textcolor);
 }
 .taskcardcontainer {
-  background-color: var(--softbg);
+  background-color: var(--softtask);
+  border-color: var(--bordercolor);
+  color: var(--textcolor);
 }
 .taskcarcontent {
+  color: var(--textcolor);
+}
+.colContainer {
+  background-color: var(--softcol);
+  color: var(--textcolor);
+  border-color: var(--bordercolor);
+}
+.edit {
+  background-color: var(--softtask);
   color: var(--textcolor);
 }

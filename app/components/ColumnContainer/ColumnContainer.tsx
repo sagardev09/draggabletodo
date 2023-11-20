@@ -24,6 +24,31 @@ const ColumnContainer = (props: Props) => {
     return props.tasks.map((task) => task.id);
   }, [props.tasks]);
 
+  var currentDate = new Date();
+
+  var year = currentDate.getFullYear();
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  var monthIndex = currentDate.getMonth();
+  var month = monthNames[monthIndex];
+
+  var day = currentDate.getDate();
+
+  var taskday = `${day}  ${month}  ${year}`;
+
   const {
     Column,
     DeleteTask,
@@ -59,7 +84,7 @@ const ColumnContainer = (props: Props) => {
       <div
         ref={setNodeRef}
         style={style}
-        className="bg-gray-600 w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-40 border-2 border-rose-500"
+        className="colContainer w-[380px] h-[540px] max-h-[540px] rounded-md flex flex-col opacity-40 border-2 "
       ></div>
     );
   }
@@ -68,35 +93,36 @@ const ColumnContainer = (props: Props) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="bg-gray-600 w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
+      className=" colContainer w-[380px] h-[540px] max-h-[540px] rounded-md flex flex-col"
     >
       {/* //column title */}
       <div
         {...attributes}
         {...listeners}
         onClick={() => setEditMode(true)}
-        className="bg-slate-700
+        className="
       text-md
       h-[60px]
       cursor-grab
       rounded-md
       rounded-b-none
-      p-3
+      py-3
+      px-2
       font-bold
-      border-gray-600
-      border-4
+      colContainer
+      border-2
       flex
       items-center
       justify-between"
       >
         <div className="flex gap-2 items-center">
-          <div className="flex justify-center items-center bg-slate-700 px-2 py-1 text-sm rounded-full">
+          <div className="flex justify-center items-center   py-1 text-sm rounded-full">
             <Pc />
           </div>
           {!editMode && Column.title}
           {editMode && (
             <input
-              className="bg-black focus:border-rose-400 border rounded-md outline-none px-2"
+              className="edit focus:border-white border rounded-md outline-none px-2"
               autoFocus
               value={Column.title}
               onChange={(e) => {
@@ -112,9 +138,12 @@ const ColumnContainer = (props: Props) => {
             />
           )}
         </div>
-        <button className="" onClick={() => DeleteTask(Column.id)}>
-          <Delete />
-        </button>
+        <div className="flex items-center gap-2">
+          <p className="text-xs taskcontent ">{taskday}</p>
+          <button className="" onClick={() => DeleteTask(Column.id)}>
+            <Delete />
+          </button>
+        </div>
       </div>
       <div className="flex flex-grow flex-col gap-4 p-1 overflow-x-hidden overflow-y-auto">
         <SortableContext items={tasksIds}>
@@ -131,7 +160,7 @@ const ColumnContainer = (props: Props) => {
         </SortableContext>
       </div>
       <button
-        className="flex items-center justify-center gap-3 bg-rose-400 p-[12px] border-2 rounded-md text-white font-normal capitalize"
+        className="flex items-center justify-center gap-3  p-[12px] border-2 rounded-md  font-normal capitalize taskcardcontainer"
         onClick={() => {
           createTask(Column.id);
         }}
